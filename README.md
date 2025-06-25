@@ -1,20 +1,9 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Project for some tips, tricks, algorithms, data structures and code challenge that I have found in books, videos and courses; all written in C# and .Net 8. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+## Project Structure
+Main solution is in DataStructuresAndAlgorithms and inside there are the following projects
+1.	AlgorithmicThinking and AlgorithmicThinkingTesting
+    - Code extracted from the book [C# and Algorithmic Thinking For The Complete Begginer](https://www.packtpub.com/en-us/product/c-and-algorithmic-thinking-for-the-complete-beginner-9781836205623?srsltid=AfmBOoqrTpQb-dwaCRvphu00JylHWWN1s2LPDzL8W5onZ7-B0uzjNOFY)
 2.	Software dependencies
-3.	Latest releases
-4.	API references
-
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+ 
