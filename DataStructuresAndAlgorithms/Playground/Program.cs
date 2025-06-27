@@ -9,6 +9,7 @@ namespace Playground
             Console.WriteLine("Hello, World!");
             var bigO = new BigO();
             bigO.MeasureTimeExecution();
+            bigO.LogAllPairsOfArray();
         }
     }
 }
