@@ -59,5 +59,89 @@ namespace ZTMCodeInterviewTesting
             //assert
             Assert.Equal([5, 1,2, 3, 4], result);
         }
+
+        [Fact]
+        public void ArraySliceShouldAddElementAtDesiredIndex()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 1, 2,  4 };
+
+            //act
+            var result = bigO.ArraySplice(array, 2 , 3);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void ArraySliceShouldAddElementAtIndex0()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 2, 3, 4 };
+
+            //act
+            var result = bigO.ArraySplice(array, 0, 1);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void ArraySliceShouldAddElementAtTheEnd()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 1, 2, 3 };
+
+            //act
+            var result = bigO.ArraySplice(array, 3, 4);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void ArraySlice2ShouldAddElementAtDesiredIndex()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 1, 2, 4 };
+
+            //act
+            var result = bigO.ArraySplice2(array, 2, 3);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void ArraySlice2ShouldAddElementAtIndex0()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 2, 3, 4 };
+
+            //act
+            var result = bigO.ArraySplice2(array, 0, 1);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void ArraySlice2ShouldAddElementAtTheEnd()
+        {
+            //arrange
+            var bigO = new BigO();
+            var array = new int[] { 1, 2, 3 };
+
+            //act
+            var result = bigO.ArraySplice2(array, 3, 4);
+
+            //assert
+            Assert.Equal([1, 2, 3, 4], result);
+        }
     }
 }

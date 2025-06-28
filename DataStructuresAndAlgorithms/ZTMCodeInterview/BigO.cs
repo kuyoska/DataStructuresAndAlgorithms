@@ -107,5 +107,57 @@ namespace ZTMCodeInterview
 
             return newArray;
         }
+
+        /// <summary>
+        /// This is O(n) as we simulate the javascript array.splice(index,element) which inserts an element at desired index
+        /// </summary>
+        /// <param name="array"></param>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public int[] ArraySplice( int[] array, int index, int value)
+        {
+            int[] newArray = new int[array.Length + 1];
+            int addedItems = 0;
+
+            for (int i = 0; i < index; i++)
+            {
+                newArray[addedItems] = array[i];
+                addedItems++;
+            }
+
+            newArray[index] = value;
+            addedItems++;
+
+            for (int i = index; i < array.Length; i++)
+            {
+                newArray[addedItems] = array[i];
+                addedItems++;
+            }           
+
+            return newArray;
+        }
+
+
+        public int[] ArraySplice2(int[] array, int index, int value)
+        {
+            int[] newArray = new int[array.Length + 1];
+            int addedItems = 0;
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                if(i == index)
+                {
+                    newArray[i] = value;
+                }
+                else
+                {
+                    newArray[i] = array[addedItems];
+                    addedItems++;
+                }
+            }
+
+            return newArray;
+        }
     }
 }
