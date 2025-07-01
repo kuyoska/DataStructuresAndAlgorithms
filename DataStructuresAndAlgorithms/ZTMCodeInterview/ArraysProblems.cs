@@ -336,6 +336,13 @@ namespace ZTMCodeInterview
             return false;
         }
 
+        /// <summary>
+        /// Have the function LongestWord(sen) take the sen parameter being passed and return the longest word in the string. 
+        /// If there are two or more words that are the same length, return the first word from the string with that length. 
+        /// Ignore punctuation and assume sen will not be empty. Words may also contain numbers, for example "Hello world123 567"
+        /// </summary>
+        /// <param name="sen"></param>
+        /// <returns></returns>
         public string LongestWord(string sen)
         {
             HashSet<char> allowedChars = [.. "abcdefghijklmnopqrstuvwxyz0123456789"];
@@ -358,6 +365,75 @@ namespace ZTMCodeInterview
 
             return currentWord.Length > longestWord.Length ? currentWord.ToString() : longestWord;
 
+        }
+
+        /// <summary>
+        /// Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        public int[] Rotate(int[] nums, int k)
+        {
+            for (int i = 0; i < k; i++)
+            {
+                int lastNumber = nums[nums.Length - 1];
+
+                for (int j = nums.Length - 1; j > 0; j--)
+                {
+                    nums[j] = nums[j - 1];
+                }
+
+                nums[0] = lastNumber;
+            }
+
+            return nums;
+        }
+
+        /// <summary>
+        /// This is above implementation with reversing technique, suggested by copilot
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="k"></param>
+        /// <returns></returns>
+        public int[] RotateWithReversing(int[] nums, int k)
+        {
+            int n = nums.Length;
+            k = k % n; // In case k > n
+
+            Reverse(nums, 0, n - 1);         // Step 1: Reverse the whole array
+            Reverse(nums, 0, k - 1);         // Step 2: Reverse first k elements
+            Reverse(nums, k, n - 1);         // Step 3: Reverse the remaining elements
+
+            return nums;
+        }
+
+        private void Reverse(int[] nums, int start, int end)
+        {
+            while (start < end)
+            {
+                int temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
+            }
+        }
+
+        public int[] RotateWithExtraSpace(int[] nums, int k)
+        {
+            int[] tempArray = new int[nums.Length];
+            int maxSize = nums.Length;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int newIndex = i + k;
+                newIndex = newIndex > maxSize - 1 ? newIndex - maxSize : newIndex; //we check the array boundaries 
+                //we can replace above line with this
+                // newIndex = (i + k) % maxSize;
+                tempArray[newIndex] = nums[i];
+            }           
+
+            return tempArray;
         }
     }
 }

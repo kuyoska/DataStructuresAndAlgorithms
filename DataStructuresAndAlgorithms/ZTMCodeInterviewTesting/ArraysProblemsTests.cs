@@ -241,5 +241,47 @@ namespace ZTMCodeInterviewTesting
             //assert
             Assert.Equal("love", result);
         }
+
+        [Fact]
+        public void RotateShouldWork()
+        {
+            //arrange
+            var ap = new ArraysProblems();
+            int[] array = [1, 2, 3, 4, 5, 6, 7];
+
+            //act
+            var result = ap.Rotate(array, 3);
+
+            //assert
+            Assert.Equal([5, 6, 7, 1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void RotateWithReversingShouldWork()
+        {
+            //arrange
+            var ap = new ArraysProblems();
+            int[] array = [1, 2, 3, 4, 5, 6, 7];
+
+            //act
+            var result = ap.RotateWithReversing(array, 3);
+
+            //assert
+            Assert.Equal([5, 6, 7, 1, 2, 3, 4], result);
+        }
+
+        [Fact]
+        public void RotateWithExtraSpaceShouldWork()
+        {
+            //arrange
+            var ap = new ArraysProblems();
+            int[] array = [1, 2, 3, 4, 5, 6, 7];
+
+            //act
+            var result = ap.RotateWithExtraSpace(array, 3);
+
+            //assert
+            Assert.Equal([5, 6, 7, 1, 2, 3, 4], result);
+        }
     }
 }
