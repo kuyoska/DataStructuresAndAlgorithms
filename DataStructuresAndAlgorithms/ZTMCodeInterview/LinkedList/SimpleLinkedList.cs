@@ -9,6 +9,8 @@ namespace ZTMCodeInterview.LinkedList
         private int _count = 0;
 
         public int Count { get { return _count; } }
+        public int Head { get { return _head.Value; } }
+        public int Tail { get { return _tail.Value; } }
 
         public void AddToStart(int value)
         {
@@ -89,13 +91,18 @@ namespace ZTMCodeInterview.LinkedList
             return false;
         }
 
-        public void Remove(int position)
+        public int Remove(int position)
         {
+            if (_count == 0) throw new Exception("Linked list is empty");
+
+            int value = _head.Value;
+
             if(position == 1)
             {
                 var currentHead = _head;
                 _head = currentHead.Next;
                 currentHead = null;
+                _count--;
             }
             else 
             {
@@ -107,13 +114,16 @@ namespace ZTMCodeInterview.LinkedList
                     {
                         var nodeToRemove = currentNode.Next;
                         currentNode.Next = nodeToRemove.Next;
+                        value = nodeToRemove.Value;
                         nodeToRemove = null;
                         _count--;
-                        return;
+                        return value;
                     }
                     else currentNode = currentNode.Next;
                 }
-            }           
+            }
+
+            return value;
         }
 
         public void Reverse()
