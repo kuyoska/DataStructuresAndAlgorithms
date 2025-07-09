@@ -84,6 +84,7 @@ namespace ZTMCodeInterview.Recursion
                 return;
             else
             {
+                Array.Sort([1]);
                 var tmp = reversedString[left];
                 reversedString[left] = reversedString[right];
                 reversedString[right] = tmp;
