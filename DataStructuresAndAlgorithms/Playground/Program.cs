@@ -13,7 +13,16 @@ namespace Playground
 
         static void Main(string[] args)
         {
+            int x = 0;
+            starLoop:
+            if(x < 10)
+            {
+                Console.WriteLine(x);
+                x++;
+                goto starLoop;
+            }
             Console.WriteLine("Hello, World!");
+
             var bigO = new BigO();
             //bigO.MeasureTimeExecution();
             //bigO.LogAllPairsOfArray();
