@@ -140,5 +140,17 @@ namespace CodeChallengesTesting
             // assert
             Assert.Equal(3, result); // Expected max depth is 2
         }
+
+        [Fact]
+        public void FirstNotRepeatingCharacter_ShouldReturnCorrectCharacter()
+        {
+            // arrange
+            var challenges = new MoreChallenges();
+            string s = "abacabad";
+            // act
+            char result = challenges.FirstNotRepeatingCharacter(s);
+            // assert
+            Assert.Equal('c', result); // Expected first non-repeating character is 'c'
+        }
     }
 }

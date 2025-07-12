@@ -115,6 +115,58 @@ namespace CodeChallenges
             var maxRight = MaxDepthInternal(currentNode.Right, currentDepth);
             return Math.Max(maxLeft, maxRight);
         }
+
+        public int Rob(int[] nums)
+        {
+            int p2Amount = 0; //the max money robbed up to two houses ago
+            int p1Amount = 0; //the max money robbed up to the previous house
+
+            foreach (var money in nums)
+            {
+                var currentAmount = Math.Max(p2Amount + money, p1Amount);
+                p2Amount = p1Amount;
+                p1Amount = currentAmount;
+            }
+
+            return p1Amount;
+        }
+
+        /// <summary>
+        /// Finds the first character in the specified string that does not repeat.
+        /// </summary>
+        /// <remarks>This method scans the input string to identify the first character that appears only
+        /// once. If no non-repeating character is found, the method returns <see langword="'$'"/>.</remarks>
+        /// <param name="s">The input string to search for the first non-repeating character.</param>
+        /// <returns>The first non-repeating character in the string. Returns <see langword="'$'"/> if no such character exists.</returns>
+        public char FirstNotRepeatingCharacter(string s)
+        {
+            var dict = new Dictionary<char, (int cont,int index)>();
+            var result = '$';
+
+            for(int i = 0; i < s.Length; i++)
+            {
+                if (dict.ContainsKey(s[i]))
+                {
+                    dict[s[i]] = (dict[s[i]].cont + 1, dict[s[i]].index);
+                }
+                else
+                {
+                    dict[s[i]] = (1, i);
+                }
+            }
+
+            int minIndex = s.Length + 1;
+            foreach (var item in dict)
+            {
+                if (item.Value.cont == 1 && item.Value.index < minIndex)
+                {
+                    result = item.Key;
+                    minIndex = item.Value.index;
+                }
+            }
+
+            return result;
+        }
     }
 
     public class TreeNode
